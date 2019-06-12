@@ -25,7 +25,7 @@ class Currency:
         Should return the currency code, or code with symbol in parentheses.
         """
         if self.symbol:
-            return self.code,"(",self.symbol,")"
+            return f"{self.code}({self.symbol}"
         return self.code 
 
     def __eq__(self, other):
@@ -104,3 +104,13 @@ class Money:
         Divide a money object by a number to get a new money object.
         """
         return Money(self.amount / divisor, self.currency)
+
+    # def __add__(self, other):
+    #     """
+    #     Add two money objects of the same currency. If they have different
+    #     currencies, raise a DifferentCurrencyError.
+    #     """
+    #     if self.currency.name == other.currency.name:
+    #         return Money(self.amount + other.amount, self.currency)
+            
+    #     raise DifferentCurrencyError
